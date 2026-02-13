@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-color: #ff758c; --bg-color: #fff1f2; }
+        body { font-family: 'Quicksand', sans-serif; background-color: var(--bg-color); margin: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 20px; }
+        h1 { font-family: 'Quicksand', cursive; color: #e965a2; font-size: 3rem; margin-bottom: 10px; }
+        .container { width: 100%; max-width: 600px; }
+        
+        /* Từng bức thư */
+        .letter-card { background: white; border-radius: 20px; padding: 25px; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(214, 51, 132, 0.1); transition: 0.3s; border: 1px solid #ffe4e6; position: relative; overflow: hidden; }
+        .locked { filter: grayscale(1); background: #f8f9fa; border: 1px dashed #ced4da; }
+        .locked::after { content: "🔒 Chưa đến giờ mở"; position: absolute; top: 10px; right: 10px; font-size: 0.8rem; color: #6c757d; }
+        
+        .date-tag { font-size: 0.85rem; color: #ff758c; font-weight: 600; margin-bottom: 10px; display: block; }
+        .title { font-size: 1.4rem; color: #444; margin: 10px 0; font-weight: 600; }
+        .content { color: #555; line-height: 1.6; display: none; white-space: pre-line; } /* white-space để giữ xuống dòng */
+        .countdown { font-weight: bold; color: #d63384; font-size: 1.1rem; }
+        .music-link { 
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--accent-color); color: #606060; 
+            text-decoration: none; padding: 10px 20px; 
+            border-radius: 50px; font-size: 0.9rem; font-weight: 600;
+            margin: 10px 0 20px 0; transition: 0.3s;
+        }
+        .music-link:hover { background: #fff1f2; box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3); }
+    </style>
+</head>
+<body>
+
+    <h1>Quà Valentine muộn tặng Tminh</h1>
+    <div class="container" id="letter-list">
+        </div>
+
+    <script>
+        // --- CHỖ ĐỂ BẠN VIẾT THƯ ---
+        const myLetters = [
+            {
+                id: 1,
+                unlockTime: "2026-02-14T00:00:00", // Định dạng: Năm-Tháng-Ngày T Giờ:Phút:Giây
+                title: "Valentine!!",
+                message: "ừm thìiiii\nđây là lần đầu t đón valentine cùng ny ne, chứ mọi năm toàn làm bánh tặng bạn bè kh à. thra cũng hơi bỡ ngỡ vì bình thường t sẽ là đứa repost mấy cái bài kiểu : 14 but no 1 4 me í=)))))) xong giang hôm trước share cday t mới kiểu ơ vl mình có r mà nhờ.\n\nđầu tiên là cảm ơn cậu vì đã luôn lắng nghe, chịu đựng, dỗ dành và chiều t dù t có nonchalant final boss hay khó chiều thất thường đến mức nào đi chăng nữa. hình như thư nào t cũng cảm ơn c hay sao í. nma thực sự là rất cần cảm ơn c=))) t biết là c siêu cố gắng vì t và cũng put effort vào việc yêu t vl nên t biết ơn lắm lắm.\n\ndù mình mới yêu gần 3 tháng nma t tưởng đâu siêu lâu òi. tvi tminh siêu hiểu t, xong mình cũng kh cãi vã gì mấy nên thời gian cứ trôi qua đều đều z thoi. tgian qua yêu c siêu vui siêu comf, t từng nói rui á c vượt qua cả những gì t expect về tyeu luôn. đến mức mà mọi người còn phải nói là c siêu hiền siêu chiều t. (nghe cnay tự hào vlll)\n\nnên mong rằng thời gian sắp tới, mình cũng tiếp tục yêu nhau cute như z nhá. chúc c valentine năm sau, năm sau nữa, năm sau nữa nữa, … đều có t ở bên êhhehehehe.",
+                musicUrl: "https://www.youtube.com/watch?v=E27ET_lINRo&list=RDE27ET_lINRo&start_radio=1"
+            },
+            {
+                id: 2,
+                unlockTime: "2026-02-15T00:00:00",
+                title: "d-10 được gặp c",
+                message: "s mình mới k gặp nhau 3 ngày mà t đã nhớ c roai=)))\n\nt nhận ra, yêu c vào t thay đổi nhiều phết=))) t bớt nonchalant hơn, bớt independent hơn(cnay là tốt hay xấu ta), t thể hiện cxuc nhiều hơn, t trẻ con hơn nữa=)))))))\nthề trước đây t ch baoh nghĩ mình sẽ yêu xa kém tnay đâu!\n\ncsong của t trước khi yêu c cũng khá vui òi, nma yêu c xong cảm giác nhẹ nhàng hơn hả. vì giờ t có người để mè nheo ne, để ăn vạ ne, để dỗi ne chứ kcan lúc nào cũng làm top nữaa (nma thỉnh thoảng t vẫn muốn làm top của mqh đấy nghe chưa=))))\n\np/s: t thấy c cũng thay đổi nhiều mò=)) từ lạnh lùng nghiêm túc boy thành soft boy biết chọc t cười r",
+                musicUrl: "https://www.youtube.com/watch?v=a7fzkqLozwA&list=RDa7fzkqLozwA&start_radio=1"
+            },
+            {
+                id: 3,
+                unlockTime: "2026-02-16T00:00:00",
+                title: "d-9 được gặp c",
+                message: "ù hn là tất niên roai.\nchắc hn c phải giúp bme chuẩn bị nhiều thứ lắm ha=))) hong sao nếu c bận nhiều chút thì t có thể làm 1 người bạn gái ngoan ngoãn hiểu chuyện ít chút để chờ c z.\n\nừm thì mặc dù mình khong ở cạnh nhau trực tiếp nma dù sao đây cũng là năm mới đầu tiên t đón cùng c mà (kh tính tết dương nhá).\n\ncgiac tết năm nay khác mấy năm trước nhiềuu. kiểu cảm giác có ai đó để chúc tết ne, để chờ nhắn tin ne, để yap mấy chuyện linh tinh trong mấy ngày đầu năm ne, tự nhiên thấy năm mới có gì đó đặc biệt hơn xíuuu.\n\nnói chung là, năm mới này tự nhiên t thấy mong hơn mọi năm. kh phải vì đồ ăn hay lì xì đâu(mdu cũng hơi là mong lì xì), mà vì mong về 1 năm mới tiếp tục ở cạnh c nữaa. d-9 nghe có vẻ còn xa mà cũng gần lắm, hơn 1 tuần có xíu, nên thoai t sẽ kiên nhẫn countdown mỗi ngày cho tgian trôi nhanh hơn z.",
+                musicUrl: "https://www.youtube.com/watch?v=liJvjjSRX90&list=RDliJvjjSRX90&start_radio=1"
+            },
+            {
+                id: 4,
+                unlockTime: "2026-02-17T00:00:00",
+                title: "d-8 được gặp c",
+                message: "hapi new yearrrrrr\nchúc bạn tminh một năm mới thiệt là dzai hơn nữa, học giỏi hơn nữa, ngoan ngoãn hơn nữa và quan trọng nhất là tiếp tục chiều ny hơn nữa nhá =)))\n\nmong là năm nay c sẽ gặp nhiều may mắn ne, ít mệt mỏi hơn ne, và lúc nào cũng cảm thấy thoải mái khi ở cạnh t (cnay quan trọng đấy!).\n\nthế là t đã được đón 1 giao thừa với c roai đóooooo.\nhy vọng năm nay tụi mình sẽ có thêm thật nhiều kỉ niệm chung, cùng nhau đi chơi nhiều hơn, và vẫn giữ được cảm giác thoải mái với nhau như bây giờ.\n\ncũng mong là sang năm, năm sau nữa, và nhiều năm nữa, t vẫn được chúc Tết c như vậy nheeeeee",
+                musicUrl: "https://www.youtube.com/watch?v=M9VSvGvSIB8&list=RDM9VSvGvSIB8&start_radio=1"
+            },
+            {
+                id: 5,
+                unlockTime: "2026-02-18T00:00:00",
+                title: "d-7 được gặp c",
+                message: "t vừa lướt threads trúng bài về sự tin tưởng trong tyeu, xong t mới hmm mình bdau tin tưởng tminh từ lúc nào ta.\n\nc biết mà t là đứa thích tự xử lý mọi thứ, có chuyện gì cũng quen giữ trong lòng, hoặc nói qua loa cho xong. nma từ khi quen c, t thấy t yap nhiều hơn hẳn.\n\nt từng bảo r, gu t chỉ là ai làm t cảm thấy an toàn thoi. somehow c đem lại cday siêu rõ ràng ngay từ đầu=)) vì với c thì t luôn ytam khi nói ra suy nghĩ thật của mình mà không sợ bị đánh giá, dù có nnao c vẫn sẽ nghe và tôn trọng t.\n\nnhiều lúc t cũng thấy question tsao bản thân lại mở lòng nhanh như vậy, nhưng thoi cxuc mà đâu gthich được như toán=)) tbh t thích lover girl version này của t lắm nên c chịu khó yêu t lâu nữa nhá.",
+                musicUrl: "https://www.youtube.com/watch?v=cthtCRmTcgA&list=RDcthtCRmTcgA&start_radio=1"
+            },
+            {
+                id: 6,
+                unlockTime: "2026-02-19T00:00:00",
+                title: "d-6 được gặp c",
+                message: "hmm dnay t nhận ra, mình nói chuyện với nhau nhiều, nhưng cũng có những lúc im lặng mà kh hề khó chịu. kiểu kphai lúc nào cũng phải nhắn liên tục hay rep ngay lập tức, nhưng vẫn biết là đối phương vẫn ở đó hở.\n\ntrc đây t hay nghĩ yêu là phải nói chuyện hoài, phải rep nhau ngay khi seen. nhưng khi yêu c thì chắc t trưởng thành hơn tý ha, hoặc do c làm t tin tưởng là c sẽ luôn rep t ngay khi có thể chứ k baoh ghost hay kh ưu tiên t. như kiểu là t biết rằng, khi nào t nói c đều sẽ lắng nghe í.\n\nehe t thấy cgiac này khá comf, kcan phải lo kiểu  “sao c chưa rep ta”, “hay tminh hết muốn nch với mình ta”. nên là t mong c cũng cảm thấy như z với t. mong là c biết knao c nói t đều sẽ nghe, dù là chuyện gì đi nữa cũng không phiền đâu.",
+                musicUrl: "https://www.youtube.com/watch?v=qz495ltcbaU&list=RDqz495ltcbaU&start_radio=1"
+            },
+            {
+                id: 7,
+                unlockTime: "2026-02-20T00:00:00",
+                title: "d-5 được gặp c",
+                message: "random thoi vì apple music tự random ra bài làn ưu tiên cho t nghe. xong t nhận ra c cũng dành cho t 1 làn ưu tiên rõ ràng phết=))\n\nkhong phải vì c phải làm gì quá to tát, mà chỉ cần mấy thứ rất nhỏ như qtam t ăn sáng ne, kể chuyện trong ngày cho t ne, hỏi t đang làm gì ne. mấy cái đó nhìn thì bình thường, nhưng nó làm t cảm giác là mình đang được ưu tiên trong lòng c lắm.\n\nt nghĩ yêu một người chắc khong phải là cảm xúc lúc nào cũng mãnh liệt, mà là việc hai người luôn dành cho nhau 1 chút ưu tiên kể cả trong những ngày rất bình thường ha.\n\nnên mong c sẽ luôn dành cho t 1 làn ưu tiên nhá. tuy ny c hơi tsundere hơi kbiet cách bày tỏ tcam cho lắm nmaaa c ytam, trong lòng t c lnao cũng có 1 làn ưu tiên đặc biệt luon!",
+                musicUrl: "https://www.youtube.com/watch?v=DAj2gDbfIpg&list=RDDAj2gDbfIpg&start_radio=1"
+            },
+            {
+                id: 8,
+                unlockTime: "2026-02-21T00:00:00",
+                title: "d-4 được gặp c",
+                message: "hmmm hình như từ khi quen c, cách t nhìn nhiều thứ cũng đổi khác. kiểu trước đây t hay nghĩ mọi thứ khá đơn giản, kiểu thích thì thích, không thì thôi. nhưng giờ thì t hay suy nghĩ nhiều hơn về cảm xúc của người khác, về cách lời nói của mình có thể ảnh hưởng tới c ra sao.\n\nt cũng kiên nhẫn hơn nữaa. có mấy chuyện trước đây chắc t sẽ bỏ qua hoặc không để tâm, thì giờ lại muốn nghe c nói cho hết, muốn hiểu c đang nghĩ gì.tvi giờ ngoài cảm xúc của t ra, trong lòng t còn có cxuc của c nữa. nên dù có vde gì xảy ra, đừng ngại nói cho t nghe chưa! kcan phải normalize kcan phải silent hay tự blame bản thân đâu. kphai lúc nào t cũng hiểu hết mọi thứ ngay lập tức, nhưng t hứa là sẽ nghe, sẽ cố hiểu, và sẽ không bỏ qua cảm xúc của c.\n\nt thấy yêu một người làm t học được cách quan tâm kiểu khác. không chỉ là hỏi “c sao rồi”, mà là thật sự để ý tới mấy cái nhỏ nhỏ trong cách c nói chuyện, cách c phản ứng, hay lúc c im lặng. yêu c khong chỉ là cxuc thoi đâu, mà nó còn là trách nhiệm nhỏ mà t tự nguyện nhận lấy. nên là c ytam đi, ny c cực kì có trách nhiệm, và sẽ có trách nhiệm với c cả đời luon.",
+                musicUrl: "https://www.youtube.com/watch?v=h52PcEuzUUA&list=RDh52PcEuzUUA&start_radio=1"
+            },
+            {
+                id: 9,
+                unlockTime: "2026-02-22T00:00:00",
+                title: "d-3 được gặp c",
+                message: "t nghĩ là bàn về tương lai trong tyeu là tính xa quá và  trước đây t cũng hay né mấy câu chuyện đó. nhưng từ khi yêu c, t thấy việc tưởng tượng mấy thứ trong tương lai khá là vui=))\nkiểu từ mấy cái tương lại gần như “lần sau gặp nhau sẽ làm gì” đến mấy cái serious hơn như “sau này tụi mình sẽ thế nào”\n\ntrước giờ t quen với việc tương lai là chuyện của riêng mình, thích làm gì thì làm, không cần phải tính tới ai. nma như c thấy đó, giờ có thêm 1 biến số là c roai=))) tất nhiên là cũng hong ràng buộc c vào tương lai của t, mà là kiểu “nếu có c thì sẽ vui hơn”.\n\nt thích cảm giác nghĩ về tương lai mà không áp lực. không cần phải hứa hẹn gì, không cần phải nói mấy câu kiểu forever các thứ. chỉ cần biết là hiện tại đang ổn, và nếu tương lai vẫn có c trong đó thì t thấy cũng đáng để mong chờ. nên là mong trong tương lai của t vẫn sẽ có c nhá (c cũng nhớ giữ chỗ trong tương lai của c cho t nữa đấy!)",
+                musicUrl: "https://www.youtube.com/watch?v=PfiToFCr0IM&list=RDPfiToFCr0IM&start_radio=1"
+            },
+            {
+                id: 10,
+                unlockTime: "2026-02-23T00:00:00",
+                title: "d-2 được gặp c",
+                message: "đang xem phim thấy nữ9 ghen nên t mới nghĩ về chuyện này.\nkiểu trước đây t luôn nghĩ mình là đứa khá chill, không dễ ghen, ai làm gì thì kệ. nhưng từ khi quen c thì t mới phát hiện là mình cũng… ghen “1 chút” được á =)))\n\nkhong phải kiểu siêu ghen siêu căng gì đâu, nma nhìn c bị người khác skinship hay nghe c hay mention về 1 người là t cũng hơi là ghen đó=))) xong lại tự nhắc bản thân là “thôi, t cũng đâu có quyền độc chiếm c 24/7”, “mình cũng làm nh thứ để c ghen mà” là lại xụi lơ hong ghen nữa=))\n\nthôi thì mấy khúc như này coi như để t hiểu c hơn, để t biết tiết chế lại những điều có thể làm c ghen nè. \n\nnhma thật ra t nghĩ ghen một xíu cũng hong xấu, còn hơi cute cơ. kiểu nó chứng tỏ là mình quan tâm, để ý, và sợ mất ngta i. nên nếu có khi nào t lỡ làm c ghen thì nhớ nói t biết nha, t còn dỗ c chứ đừng im lặng đó nghe chưaa 😌",
+                musicUrl: "https://www.youtube.com/watch?v=Pc1CD6sDuPc&list=RDPc1CD6sDuPc&start_radio=1"
+            },
+            {
+                id: 11,
+                unlockTime: "2026-02-24T00:00:00",
+                title: "d-1 được gặp c",
+                message: "ÔI MAI ĐƯỢC GẶP C R ÊHHEHEHEEHE\n\nChecklist gặp lại ny sau Tết của nmq:\n ☑️ xác nhận xem đấy có phải ny mình k\n ☑️ kiểm tra xem tminh có dzai hơn sau Tết không\n☑️ coi ai sẽ là người ôm trước (important)\n☑️ kiểm tra độ chịu đựng khi tminh bắt kể chi tiết từng ngày nghỉ Tết =)))\n☑️ update xem c có nhớ t như t nhớ c không\n☑️ chụp một tấm hình chung để confirm đã hết yêu xa\n\nanw, checklist chỉ mang tính hình thức thoi.\nmục tiêu chính vẫn là: được gặp lại c và confirm là t thích yêu c trực tiếp hơn là yêu xa qua mạng.",
+                musicUrl: "https://www.youtube.com/watch?v=Tn0GZ2sReQA&list=RDTn0GZ2sReQA&start_radio=1"
+            }
+        ];
+        // ---------------------------
+
+        function renderLetters() {
+            const list = document.getElementById('letter-list');
+            const now = new Date().getTime();
+
+            list.innerHTML = myLetters.map(letter => {
+                const targetTime = new Date(letter.unlockTime).getTime();
+                const isLocked = targetTime > now;
+                const timeStr = new Date(letter.unlockTime).toLocaleString('vi-VN', {day:'numeric', month:'numeric', hour:'2-digit', minute:'2-digit'});
+
+                return `
+                    <div class="letter-card ${isLocked ? 'locked' : ''}">
+                        <span class="date-tag">⏰ Mở vào: ${timeStr}</span>
+                        <div class="title">${isLocked ? "Bức thư bí mật..!" : letter.title}</div>
+                        
+                        ${isLocked ? 
+                            `<div class="countdown" id="timer-${letter.id}">Chờ đợi là hạnh phúc</div>` : 
+                            `<div>
+                                <a href="${letter.musicUrl}" target="_blank" class="music-link">
+                                    🎵 Song of the day
+                                </a>
+                                <div class="content" style="display:block">${letter.message}</div>
+                             </div>`
+                        }
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function updateTimers() {
+            const now = new Date().getTime();
+            let needReRender = false;
+
+            myLetters.forEach(letter => {
+                const targetTime = new Date(letter.unlockTime).getTime();
+                const diff = targetTime - now;
+                const timerEl = document.getElementById(`timer-${letter.id}`);
+
+                if (timerEl && diff > 0) {
+                    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const s = Math.floor((diff % (1000 * 60)) / 1000);
+                    timerEl.innerHTML = `Còn: ${d}d ${h}:${m}:${s}`;
+                } else if (timerEl && diff <= 0) {
+                    needReRender = true; 
+                }
+            });
+
+            if (needReRender) renderLetters();
+        }
+
+        renderLetters();
+        setInterval(updateTimers, 1000);
+    </script>
+</body>
+</html>
